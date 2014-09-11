@@ -1,12 +1,14 @@
-function MedicoDB () {
+function MedicoDB (app) {
     /** @type {Object.<Number, Medico>} */ this.medicos = {};
-    /** @type {Array.<Medico>} */ this.medicoOrdered = [];
+    /** @type {Array.<Medico>} */ this.medicosOrdered = [];
+    
+    /** @type Application */ this.app = app;
     
     this.updateFromJSON = function (json, clean) {
         if (typeof json['Medicos'] !== 'undefined') {
             if (clean) {
                 this.medicos = {};
-                this.medcisoOrdered = [];
+                this.medicosOrdered = [];
             }
             for (var i = 0; i < json['Medicos'].length; i++) {
                 if (typeof this.medicos[json['Medicos'][i]['id']] === undefined) {
@@ -34,7 +36,7 @@ function MedicoDB () {
      * @param {Medico} medico
      * @returns {Medico}
      */
-    this.addPaciente = function (medico) {
+    this.addMedico = function (medico) {
         if (typeof this.pacientes[medico.id] === 'undefined') {
             this.medicos[medico.id] = medico;
         }
@@ -46,7 +48,7 @@ function MedicoDB () {
      * @param {number} id
      * @returns {Medico}
      */
-    this.getPaciente = function (id) {
+    this.getMedico = function (id) {
         if (typeof this.medicos[id] !== 'undefined') {
             return this.medicos[id];
         }

@@ -1,0 +1,77 @@
+body {
+    background-color: #b1cbe4;
+    min-width: 1160px;
+    background-image: url('../img/background.png');
+    background-repeat: repeat-x;
+}
+
+#loadingDiv {
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: #dadaff;
+    z-index: 100;
+}
+
+#loadingDiv > a {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    background-color: #000;
+}
+
+
+
+#menu {
+    display: block;
+    width: 200px;
+    background-color: white;
+    position: fixed;
+    left: 0px;
+    top: 50%;
+    list-style: none;
+    padding: 0px;
+    border: solid 1px #000;
+    border-left: none;
+}
+
+#menu > li {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: #0000cf;
+    text-align: center;
+}
+
+#menu > li:hover {
+    cursor: pointer;
+    color: #4545ff;
+    background-color: #e3e3e3;
+}
+
+#menu > li:active {
+    color: #00008d;
+}
+
+#conteudo {
+    display: block;
+    position: absolute;
+    left: 240px;
+    right: 40px;
+    background-color: white;
+    top: 20px;
+    overflow-y: scroll;
+    bottom: 20px;
+    border: solid 1px #000;
+}

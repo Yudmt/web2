@@ -1,6 +1,8 @@
-function PacienteDB () {
+function PacienteDB (app) {
     /** @type {Object.<Number, Paciente>} */ this.pacientes = {};
     /** @type {Array.<Paciente>} */ this.pacientesOrdered = [];
+    
+    /** @type Application */ this.app = app;
     
     this.updateFromJSON = function (json, clean) {
         if (typeof json['Pacientes'] !== 'undefined') {
