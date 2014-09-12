@@ -11,6 +11,8 @@ function UI (app) {
      * Elements
      */
     this.$loading = $('#loadingDiv');
+    this.$menu = $('#menu');
+    this.$conteudo = $('#conteudo');
     
     /**
      * Variables
@@ -31,6 +33,26 @@ function UI (app) {
             this.$loading.stop(true,true).fadeOut();
         }
     };
+    
+    this.hideUI = function () {
+        this.$menu.hide();
+        this.$conteudo.hide();
+    };
+    
+    this.showUI = function () {
+        this.$menu.stop(true,true).fadeIn();
+        this.$conteudo.stop(true,true).fadeIn();
+    };
+    
+    this.resizeMenu = function () {
+        var height = this.$menu.height();
+        height = height/2;
+        height = parseInt(height);
+        this.$menu.css("margin-top", "-" + height + "px");
+    };
+    
+    this.resizeMenu();
+    this.hideUI();
     
     this.unblockScreen();
 }

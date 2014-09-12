@@ -22,6 +22,7 @@ function Application () {
 //    this.agendamentoapp = new AgendamentoApp(this);
 //    this.atendenteapp = new AtendenteApp(this);
 //    this.planosaudeapp = new PlanoSaudeApp(this);
+    this.loginapp = new LoginApp(this);
     
     /**
      * UI

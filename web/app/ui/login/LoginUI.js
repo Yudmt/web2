@@ -4,11 +4,22 @@ function LoginUI (ui) {
     /**
      * Elements
      */
-    
+    this.$loginWindow = $('#loginWindow');
     this.$loginForm = $('#loginForm');
-    this.$loginInput = $('#loginInput');
-    this.$senhaInput = $('#senhaInput');
-    this.$tipoInput = $('#tipoInput');
+    this.$loginInput = $('#lfLogin');
+    this.$senhaInput = $('#lfPassword');
+    this.$tipoInput = $('#lfTipo');
+    this.$submit = $('#lfSubmit');
+    this.$error = $('#loginError').empty().hide();
+    
+    
+    /**
+     * Bindings
+     */
+    
+    this.$loginForm.on("submit", function (e) {
+        window.app.ui.loginui.login(e);
+    });
     
     
     /**
@@ -28,15 +39,48 @@ function LoginUI (ui) {
         var tipo = this.$tipoInput.val();
         
         var cbs = function (data) {
-            // Success!
+            window.app.ui.unblockScreen();
+            window.app.ui.loginui.$loginWindow.stop(true, true).fadeOut();
+            window.app.ui.showUI();
         };
         
         var cbe = function (data) {
-            // Print error
+            window.app.ui.unblockScreen();
+            var erro;
+            switch (data.status) {
+                case 404:
+                    erro = "Credenciais inválidas. Tente novamente.";
+                    break;
+                case 403:
+                    erro = "Conta bloqueada.";
+                    break;
+                case 400:
+                    erro = "Formulário inválido. Tente novamente.";
+                    break;
+                case 401:
+                    erro = "Entrada não autorizada.";
+                    break;
+                default:
+                    erro = "Erro ao processar esse pedido. Tente novamente.";
+                    break;
+            }
+            window.app.ui.loginui.$error.text(erro).stop(true, true).fadeIn();
+            window.app.ui.loginui.resizeLoginForm();
         };
+        
+        window.app.ui.blockScreen();
         
         this.ui.app.loginapp.login(tipo, login, senha, cbs, cbe);
     };
     
-    //$('#menu').css('margin-top', '-' + ($('#menu').height()/2) + 'px');
+    
+    this.resizeLoginForm = function () {
+        var width = parseInt(this.$loginForm.width() / 2);
+        var height = parseInt(this.$loginForm.height() / 2);
+        this.$loginForm.css('margin-left', '-' + width + 'px');
+        this.$loginForm.css('margin-top', '-' + height + 'px');
+    };
+    
+    this.resizeLoginForm();
+    this.$loginInput.focus();
 }

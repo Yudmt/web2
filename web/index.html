@@ -10,10 +10,22 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/Geral.css" />
+        <link rel="stylesheet" href="css/Login.css" />
     </head>
     <body>
         <div id="loadingDiv">
             <a></a>
+        </div>
+        <div id="loginWindow">
+            <form id="loginForm">
+                <p id="loginError"></p>
+                <input id="lfLogin" type="text" placeholder="Login" />
+                <input id="lfPassword" type="password" placeholder="Senha" />
+                <select id="lfTipo">
+                    <option>Medico</option>
+                </select>
+                <input id="lfSubmit" type="submit" />
+            </form>
         </div>
         <ul id='menu'>
             <li onclick='window.app.ui.blockScreen(); setTimeout(function () { window.app.ui.unblockScreen(); }, 2000);'>Botão teste</li>
