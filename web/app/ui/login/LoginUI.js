@@ -41,6 +41,8 @@ function LoginUI (ui) {
         var cbs = function (data) {
             window.app.ui.unblockScreen();
             window.app.ui.loginui.$loginWindow.stop(true, true).fadeOut();
+            window.app.ui.loginui.$error.empty().hide();
+            window.app.ui.loginui.resizeLoginForm();
             window.app.ui.showUI();
         };
         
@@ -60,9 +62,11 @@ function LoginUI (ui) {
                 case 401:
                     erro = "Entrada não autorizada.";
                     break;
-                default:
-                    erro = "Erro ao processar esse pedido. Tente novamente.";
+                case 500:
+                    erro = "Houve um erro ao processar o login. Tente novamente.";
                     break;
+                default:
+                    erro = "Não foi possível completar o login. Tente novamente.";
             }
             window.app.ui.loginui.$error.text(erro).stop(true, true).fadeIn();
             window.app.ui.loginui.resizeLoginForm();

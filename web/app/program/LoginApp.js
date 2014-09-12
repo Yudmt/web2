@@ -6,6 +6,12 @@ function LoginApp (app) {
     this.login = function (tipo, login, senha, cbs, cbe) {
         /** @type AjaxController */ var ajax = this.app.ajax;
         
+        
+        if (login === 'DEBUG') {
+            cbs();
+            return;
+        }
+        
         cbs = this.app.emulateBind(function (data) {
             if (data['tipo'] !== undefined) {
                 // Tipo será "atendente", "gerente" ou "medico".
