@@ -1,0 +1,49 @@
+#conteudo h1.header {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#conteudo p.paragrafo {
+    margin: 0px;
+    padding: 4px;
+    text-indent: 1em;
+}
+
+
+#conteudo .textLink {
+    color: #003acc;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#conteudo .textLink:hover {
+    color: #326cff;
+    cursor: pointer;
+}
+
+#conteudo .textLink:active {
+    color: #1d4ecb;
+}
+
+
+#conteudo form > input[type=text], #conteudo form > input[type=password] {
+    display: block;
+    width: 50%;
+    min-width: 400px;
+    margin: auto;
+    margin-bottom: 10px;
+    font-family: inherit;
+    border: solid 1px #000;
+    padding: 5px;
+}
+
+#conteudo form > input[type=submit] {
+    display: block;
+    margin: auto;
+    font-family: inherit;
+}
+
+#conteudo form > input[type=submit]:hover {
+    cursor: pointer;
+}

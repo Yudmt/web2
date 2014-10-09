@@ -1,0 +1,44 @@
+Connection dbh = null;
+PreparedStatement stmt = null;
+ResultSet rs = null;
+try {
+    dbh = ConnectionPooler.getConnection();
+    // CODIGO AQUI
+} catch (SQLException e) {
+    // RETORNAR ERRO AQUI
+} finally {
+    ConnectionPooler.closeResultset(rs);
+    ConnectionPooler.closeStatement(stmt);
+    ConnectionPooler.closeConnection(dbh);
+}
+
+
+Connection dbh = null;
+PreparedStatement stmt = null;
+ResultSet rs = null;
+try {
+    dbh = ConnectionPooler.getConnection();
+    dbh.setAutoCommit(false);
+    // CODIGO AQUI
+    dbh.commit();
+} catch (SQLException e) {
+    try {
+        if (dbh != null) {
+            dbh.rollback();
+        }
+    } catch (SQLException ex) {
+        // ERRO DENTRO DO ERRO
+    }
+    // RETORNAR ERRO AQUI
+} finally {
+    try {
+        if (dbh != null) {
+            dbh.setAutoCommit (true);
+        }
+    } catch (SQLException e) {
+        // ERRO AO FECHAR CONEXÃO
+    }
+    ConnectionPooler.closeResultset(rs);
+    ConnectionPooler.closeStatement(stmt);
+    ConnectionPooler.closeConnection(dbh);
+}

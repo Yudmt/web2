@@ -1,8 +1,44 @@
+/* Menu */
+#menu {
+    display: block;
+    width: 200px;
+    background-color: white;
+    position: absolute;
+    left: 10px;
+    list-style: none;
+    padding: 0px;
+    border: solid 1px #000;
+}
+
+#menu > a {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: #0000cf;
+    text-align: center;
+    text-decoration: none;
+}
+
+#menu > a:hover {
+    cursor: pointer;
+    color: #4545ff;
+    background-color: #e3e3e3;
+}
+
+#menu > a:active {
+    color: #00008d;
+}
+
+/* Corpo */
+
 body {
     background-color: #b1cbe4;
-    min-width: 1160px;
     background-image: url('../img/background.png');
     background-repeat: repeat-x;
+    min-height: 400px;
 }
 
 #loadingDiv {
@@ -17,61 +53,52 @@ body {
 }
 
 #loadingDiv > a {
-    width: 100px;
-    height: 100px;
     position: absolute;
-    display: block;
+    width: 64px;
+    height: 64px;
     left: 50%;
     top: 50%;
-    margin-left: -50px;
-    margin-top: -50px;
-    background-color: #000;
+    margin-top: -32px;
+    margin-left: -32px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gIZAQ4niXpuWAAABZhJREFUeNrdm9uLHEUUxn9TPTuzl0yyotF4y6qJohgVH2IQ0aCohH0JGBCNeIniBcF/IaLog+AFFSGgoo8qgojgk4pGI8QHTULQsCHmYiTrelndzc5e5uZDn2aL2p6p7qma6Z39oNmp7e7qqq/OOXXOqapco9Ggw1gL3ApcBWwAbpD/bwIKQN54XgFRozreuHyH6r0RuAfYBlxv3Ass7+bk0gmpy9VYzgQMAY8Cu4BrPNabE9ICIaABVJcTAauBp4BngHMSjLAvMmo+iHAlYCfwAnCelOuG+EYi7BNKU6U+IaHSbQJGgLeBzR0e8SQS0S9EzMkAtMVmGmwH9knnlwsCYLCdAU1LwPPA+2LwlhtywIBc3lWgALwO7IgRM5vO11OSbqvPdn9AJOKsLwIC4D3gLnoHBaAETPtQged6rPMR+sQuOBGwE3iC3kW/XM31rUUscBPwIVC0qE1gud+Xspx3fD6IKf8DLKSRgItlnu+j95Fr5aE2I+BN4FxWDhQwnJSA+0X8VxoKcUbRtAHDwNcGW0FKnc/HfBgJXr6S+r+X8kH5a76vWuh8IeX3A8MnGdd9E/PhR5qJigP+AF4EPgamEjxf1aQz6IAqrAb+jSNgEHjI48fmgFeAPcBMG+/XtZEqeGxXCfgvSq7kDd33NfoT4kP86KGuiqhJf4wb3K4UlCJp1AnYIeJn8+XNsulIHBZJOu1x1OoiUYMJ/ASbX6CANREBUWc3ARs9jfwDnjuvk1BuJ+ZvMiMUdQJGPYnqLuBMB6eyuuivD6zSCbjNQ4WvAge6MJ9X2zSqJgYjfVkDXM5iXk1ZnKVaTHkceKeLTs2stDuIsQGBpf1Ksx2BArZ4aNAe0c9uoZEk1k8iBUpG3wVl4KMMXNsZ3BdKCgq4zLGSL2SK6jYaogouKOYJU9wVI3wkRXlfhgFOjaVJUJWi/UOKxUWNdnE0QwLmHd/Pq2g+dMCpDAmoOL6vFAkShxZMZ0iAq1eo8h5YzBouA9hQHubvVRl23jVfUFMe3MpLMiSg31WFFPCXYyUbMyRgwPH9ah741ehEwxLvm+VrgU8yIuB8li7U1lK0f0oBJxwbcQtLF0+6AR8+TFkBJz2I4bYMCLjIgxGcVcBPHhrzoAd9TGv9RzzUM5UnTBEfAa5oojN1i45VZS7eDnzQJQI2aOK/ENOeVu2ta9FkJQocfGRv7wPWd6HzJcJNl66Y1COnLz1UWAB2Ey48dApFwgSOjwWTCZ2AX4DfPBmmZ+nMwuoAsBU/+5PKSFpcXxu8F3g8gc7XLBHZvNiVl4Fjnjq/FrhTSChbQuJKgvaPRdO/njz4DD/ZVghXmHaLYXRZ1soT7jUe9TjLVHVpN1eHHyZc0nKVAB1ngE+BH0iewioCVwI3x3zPVQLGdMk0CSgR7ggreSSgrDH/s8w4J0TVfpd76whTVZfK7/WaoZv2SEAF+EZ/Jm6P0CjwdIt5tZqSAHPUZywJlbOW52dTEqC39xBw3PSnTXwuI7XS8LfZ+WYEALxBNqnuTqFKk2W7ZgScJtwau1JwgCZbZ1ttlf0WuBq422IDFlLoYJwRjQt0WrWxzxLvmzimGdvEEhDhXeC7Hh75k4QbsWiXgDrwFt1Z9vaNcWC/TUJUQgPyEuHWtl7BKWAvCdYNkp4XqAKvSQh5h0XHbTpv09lcSptgdvKIeJ2JkGvj4OQW4DEWU9IVi1E0HZU5i2MzZynPN/leRezV8bTBRlrsF1f2SbJNiZux/V6SbcR0lgAdWwm31w1lJAHzhMvzY+12IOfh7PAQ4YmS2yVkXXBUifkEIr8gfv1BV4815/HwdJSx2Qxc0CECJqXjh2lyACJLAnSMEB6gvo7wsIILAePizR2V316R68Lx+RJhyv1CwlT2sExt6wwCJljccjcJ/CmZm5lONu5/mRtzRtU7vF4AAAAASUVORK5CYII=');
+    -webkit-animation: rotation 0.8s infinite linear;
 }
 
-
-
-#menu {
-    display: block;
-    width: 200px;
-    background-color: white;
-    position: fixed;
-    left: 0px;
-    top: 50%;
-    list-style: none;
-    padding: 0px;
-    border: solid 1px #000;
-    border-left: none;
+@-webkit-keyframes rotation {
+    from {-webkit-transform: rotate(0deg);}
+    to   {-webkit-transform: rotate(359deg);}
 }
 
-#menu > li {
-    display: block;
-    width: 100%;
-    font-weight: bold;
-    font-size: 1.2em;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    color: #0000cf;
-    text-align: center;
-}
-
-#menu > li:hover {
-    cursor: pointer;
-    color: #4545ff;
-    background-color: #e3e3e3;
-}
-
-#menu > li:active {
-    color: #00008d;
-}
+/* Conteúdo */
 
 #conteudo {
     display: block;
     position: absolute;
     left: 240px;
-    right: 40px;
+    right: 30px;
     background-color: white;
     top: 20px;
     overflow-y: scroll;
     bottom: 20px;
     border: solid 1px #000;
+}
+
+/* Scroll */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 0px;
+    background-color: #b9b9b9;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: #626262;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    cursor: pointer;
 }

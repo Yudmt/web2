@@ -13,6 +13,7 @@ function UI (app) {
     this.$loading = $('#loadingDiv');
     this.$menu = $('#menu');
     this.$conteudo = $('#conteudo');
+    this.$body = $('body');
     
     /**
      * Variables
@@ -45,10 +46,12 @@ function UI (app) {
     };
     
     this.resizeMenu = function () {
-        var height = this.$menu.height();
-        height = height/2;
+        var oHeight = this.$menu.height();
+        var height = oHeight/2;
         height = parseInt(height);
         this.$menu.css("margin-top", "-" + height + "px");
+        this.$menu.css('top', '50%');
+        this.$body.css('min-height', oHeight + 'px');
     };
     
     this.resizeMenu();

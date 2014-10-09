@@ -40,4 +40,20 @@ function AjaxController () {
             }
         });
     };
+    
+    this.jsonFromHTML = function (html) {
+        var $html = $(html);
+        var $codes = $html.find('code');
+        
+        var json = {};
+        
+        var $code;
+        for (var i = 0; i < $codes.length; i++) {
+            $code = $($codes[i]);
+            
+            json[$code.attr('id')] = $code.text();
+        }
+        
+        return json;
+    };
 }
