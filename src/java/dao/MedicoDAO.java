@@ -19,7 +19,7 @@ import sistema.ConnectionPooler;
  * @author reddo
  */
 public class MedicoDAO {
-    public boolean criaMedico (Medico medico) {
+    public static boolean criaMedico (Medico medico) {
         Connection dbh = null;
         PreparedStatement stmt = null;
         try {
@@ -45,7 +45,7 @@ public class MedicoDAO {
         }
     }
     
-    public ArrayList<Medico> getMedicos (String crm, String especialidade) {
+    public static ArrayList<Medico> getMedicos (String crm, String especialidade) {
         Connection dbh = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;

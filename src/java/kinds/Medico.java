@@ -6,20 +6,34 @@
 
 package kinds;
 
+import com.google.gson.annotations.Expose;
+
 /**
  *
  * @author reddo
  */
 public class Medico {
-    private int id;
-    private String cpf;
-    private String nome;
-    private String endereco;
-    private String telefone;
-    private String email;
-    private String crm;
-    private String especialidade;
+    @Expose private int id;
+    @Expose private String cpf;
+    @Expose private String nome;
+    @Expose private String endereco;
+    @Expose private String telefone;
+    @Expose private String email;
+    @Expose private String crm;
+    @Expose private String especialidade;
+    
+    private String json;
 
+    public String getJson() {
+        return json;
+    }
+
+    public void setJson(String json) {
+        this.json = json;
+    }
+
+    
+    
     public int getId() {
         return id;
     }

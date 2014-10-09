@@ -41,17 +41,19 @@ function AjaxController () {
         });
     };
     
-    this.jsonFromHTML = function (html) {
-        var $html = $(html);
-        var $codes = $html.find('code');
+    this.jsonFromHTML = function ($html) {
+        var $codes = $html.children('code');
         
         var json = {};
         
         var $code;
         for (var i = 0; i < $codes.length; i++) {
             $code = $($codes[i]);
-            
-            json[$code.attr('id')] = $code.text();
+            if ($code.children('code').length !== 0) {
+                json[$code.attr('data-id')] = this.jsonFromHTML($code);
+            } else {
+                json[$code.attr('data-id')] = $code.text();
+            }
         }
         
         return json;
