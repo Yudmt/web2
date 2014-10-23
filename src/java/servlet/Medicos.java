@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import kinds.Medico;
+import sistema.GsonFactory;
 
 /**
  *
@@ -104,9 +105,8 @@ public class Medicos extends HttpServlet {
         String especialidade = request.getParameter("especialidade");
         if (especialidade == null) especialidade = "";
         
-        //ArrayList<Medico> medicos = MedicoDAO.getMedicos(crm, especialidade);
         ArrayList<Medico> medicos = new ArrayList<Medico> ();
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+        Gson gson = GsonFactory.getFactory().getGsonExposed();
         Medico medico = new Medico();
         medico.setNome("João");
         medico.setJson(gson.toJson(medico));
