@@ -33,12 +33,22 @@ public class Agendamento {
     
     */
     
+    private final int SITUACAO_ESPERA = 0;
+    private final int SITUACAO_ATENDIMENTO = 1;
+    private final int SITUACAO_ATENDIDO = 2;
+    private final int SITUACAO_CANCELADO = 3;
+    
+    public static final int ESTADO_RISCO = 0;
+    public static final int ESTADO_CRITICO = 1;
+    public static final int ESTADO_ESTAVEL = 2;
+    
     @Expose private int id;
     @Expose private Paciente paciente;
-    @Expose private String Anamnese;
+    @Expose private String anamnese;
     @Expose private String data;
     @Expose private Atendente atendente;
     @Expose private int estado;
+    private Medico medico;
     
     private String json;
 
@@ -59,11 +69,11 @@ public class Agendamento {
     }
 
     public String getAnamnese() {
-        return Anamnese;
+        return anamnese;
     }
 
     public void setAnamnese(String Anamnese) {
-        this.Anamnese = Anamnese;
+        this.anamnese = Anamnese;
     }
 
     public String getData() {
@@ -96,5 +106,17 @@ public class Agendamento {
 
     public void setJson(String json) {
         this.json = json;
+    }
+    
+    public boolean isRisco () {
+        return estado == ESTADO_RISCO;
+    }
+    
+    public boolean isCritico () {
+        return estado == ESTADO_CRITICO;
+    }
+    
+    public boolean isEstavel () {
+        return estado == ESTADO_ESTAVEL;
     }
 }

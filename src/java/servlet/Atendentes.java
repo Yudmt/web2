@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import kinds.Agendamento;
 import kinds.Atendente;
 
 /**
@@ -52,6 +53,8 @@ public class Atendentes extends HttpServlet {
             return;
         }
         
+        Agendamento exemplo = new Agendamento();
+        exemplo.setEstado(Agendamento.ESTADO_CRITICO);
         
         // Nenhuma ação válida encontrada, não implementado.
         response.setStatus(HttpServletResponse.SC_NOT_IMPLEMENTED);

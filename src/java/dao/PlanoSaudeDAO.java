@@ -61,13 +61,7 @@ public class PlanoSaudeDAO {
             while (rs.next()) {
                 planoSaude = new PlanoSaude();
                 
-                planoSaude.setId(rs.getInt("id"));
-                planoSaude.setCnpj(rs.getString("cnpj"));
-                planoSaude.setEmail(rs.getString("email"));
-                planoSaude.setEndereco(rs.getString("endereco"));
-                planoSaude.setNome(rs.getString("nome"));
-                planoSaude.setTelefone(rs.getString("telefone"));
-                planoSaude.setContato(rs.getString("contato"));
+                preenchePlano (planoSaude, rs);
                 
                 planosSaude.add(planoSaude);
             }
@@ -114,5 +108,15 @@ public class PlanoSaudeDAO {
             ConnectionPooler.closeStatement(stmt);
             ConnectionPooler.closeConnection(dbh);
         }
+    }
+
+    public static void preenchePlano(PlanoSaude planoSaude, ResultSet rs) throws SQLException {
+        planoSaude.setId(rs.getInt("id"));
+        planoSaude.setCnpj(rs.getString("cnpj"));
+        planoSaude.setEmail(rs.getString("email"));
+        planoSaude.setEndereco(rs.getString("endereco"));
+        planoSaude.setNome(rs.getString("nome"));
+        planoSaude.setTelefone(rs.getString("telefone"));
+        planoSaude.setContato(rs.getString("contato"));
     }
 }
